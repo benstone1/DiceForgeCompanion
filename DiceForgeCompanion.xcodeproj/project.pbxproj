@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		CD3CDA4E258319470063D9BB /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA4D258319470063D9BB /* DieView.swift */; };
 		CD3CDA50258321350063D9BB /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA4F258321350063D9BB /* Die.swift */; };
+		CD3CDA5325832CBB0063D9BB /* SelectDieFaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA5125832CBB0063D9BB /* SelectDieFaceViewController.swift */; };
+		CD3CDA5425832CBB0063D9BB /* SelectDieFaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3CDA5225832CBB0063D9BB /* SelectDieFaceViewController.xib */; };
+		CD3CDA5725832E670063D9BB /* DieFaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA5525832E670063D9BB /* DieFaceCollectionViewCell.swift */; };
+		CD3CDA5825832E670063D9BB /* DieFaceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3CDA5625832E670063D9BB /* DieFaceCollectionViewCell.xib */; };
 		CDB76145252F53B700D94BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB76144252F53B700D94BAA /* AppDelegate.swift */; };
 		CDB76147252F53B700D94BAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB76146252F53B700D94BAA /* SceneDelegate.swift */; };
 		CDB76149252F53B700D94BAA /* DiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB76148252F53B700D94BAA /* DiceSelectionViewController.swift */; };
@@ -31,6 +35,10 @@
 /* Begin PBXFileReference section */
 		CD3CDA4D258319470063D9BB /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 		CD3CDA4F258321350063D9BB /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		CD3CDA5125832CBB0063D9BB /* SelectDieFaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDieFaceViewController.swift; sourceTree = "<group>"; };
+		CD3CDA5225832CBB0063D9BB /* SelectDieFaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDieFaceViewController.xib; sourceTree = "<group>"; };
+		CD3CDA5525832E670063D9BB /* DieFaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieFaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD3CDA5625832E670063D9BB /* DieFaceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DieFaceCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDB76141252F53B700D94BAA /* DiceForgeCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceForgeCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB76144252F53B700D94BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB76146252F53B700D94BAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +94,10 @@
 				CDB76144252F53B700D94BAA /* AppDelegate.swift */,
 				CDB76146252F53B700D94BAA /* SceneDelegate.swift */,
 				CDB76148252F53B700D94BAA /* DiceSelectionViewController.swift */,
+				CD3CDA5125832CBB0063D9BB /* SelectDieFaceViewController.swift */,
+				CD3CDA5225832CBB0063D9BB /* SelectDieFaceViewController.xib */,
+				CD3CDA5525832E670063D9BB /* DieFaceCollectionViewCell.swift */,
+				CD3CDA5625832E670063D9BB /* DieFaceCollectionViewCell.xib */,
 				CD3CDA4F258321350063D9BB /* Die.swift */,
 				CDB7614A252F53B700D94BAA /* Main.storyboard */,
 				CD3CDA4D258319470063D9BB /* DieView.swift */,
@@ -186,9 +198,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3CDA5425832CBB0063D9BB /* SelectDieFaceViewController.xib in Resources */,
 				CDB76151252F53B800D94BAA /* LaunchScreen.storyboard in Resources */,
 				CDB7614E252F53B800D94BAA /* Assets.xcassets in Resources */,
 				CDB7614C252F53B700D94BAA /* Main.storyboard in Resources */,
+				CD3CDA5825832E670063D9BB /* DieFaceCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,9 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3CDA5325832CBB0063D9BB /* SelectDieFaceViewController.swift in Sources */,
 				CDB76149252F53B700D94BAA /* DiceSelectionViewController.swift in Sources */,
 				CD3CDA4E258319470063D9BB /* DieView.swift in Sources */,
 				CDB76145252F53B700D94BAA /* AppDelegate.swift in Sources */,
+				CD3CDA5725832E670063D9BB /* DieFaceCollectionViewCell.swift in Sources */,
 				CD3CDA50258321350063D9BB /* Die.swift in Sources */,
 				CDB76147252F53B700D94BAA /* SceneDelegate.swift in Sources */,
 			);

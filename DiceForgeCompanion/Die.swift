@@ -38,6 +38,12 @@ struct Die {
 struct DieFace {
     let image: UIImage
     let type: DieFaceType
+    static let allFaces: [DieFace] = [
+        DieFace(image: UIImage(named: "oneGold")!, type: .gold(1)),
+        DieFace(image: UIImage(named: "oneSun")!, type: .sunShard(1)),
+        DieFace(image: UIImage(named: "oneMoon")!, type: .moonShard(1)),
+        DieFace(image: UIImage(named: "twoVictory")!, type: .victory(2)),
+    ]
 }
 
 indirect enum DieFaceType {

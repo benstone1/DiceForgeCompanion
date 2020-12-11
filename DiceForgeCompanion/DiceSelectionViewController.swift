@@ -25,5 +25,8 @@ class DiceSelectionViewController: UIViewController {
 extension DiceSelectionViewController: DieViewDelegate {
     func didSelectDie(at faceIndex: Int) {
         print("Die \(faceIndex) selected")
+        present(SelectDieFaceViewController(), animated: true) {
+            print("done")
+        }
     }
 }
