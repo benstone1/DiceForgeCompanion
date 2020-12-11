@@ -15,24 +15,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPQ-Cg-kMk" customClass="DieView" customModule="DiceForgeCompanion" customModuleProvider="target">
-                                <rect key="frame" x="107" y="303" width="200" height="300"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPQ-Cg-kMk" customClass="DieView" customModule="DiceForgeCompanion" customModuleProvider="target">
+                                <rect key="frame" x="20" y="124" width="160" height="240"/>
+                                <color key="backgroundColor" red="1" green="0.98009110850975623" blue="0.96366659526685483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Im7-b5-w4S"/>
-                                    <constraint firstAttribute="width" constant="200" id="ObL-ep-GOp"/>
+                                    <constraint firstAttribute="height" constant="240" id="Im7-b5-w4S"/>
+                                    <constraint firstAttribute="width" constant="160" id="ObL-ep-GOp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-QI-KrB" customClass="DieView" customModule="DiceForgeCompanion" customModuleProvider="target">
+                                <rect key="frame" x="227" y="124" width="160" height="240"/>
+                                <color key="backgroundColor" red="1" green="0.98009110850975623" blue="0.96366659526685483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="RJr-CK-QAp"/>
+                                    <constraint firstAttribute="height" constant="240" id="l94-gq-5uo"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="GPQ-Cg-kMk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TdH-VI-FxF"/>
-                            <constraint firstItem="GPQ-Cg-kMk" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xnI-4z-FfA"/>
+                            <constraint firstItem="GPQ-Cg-kMk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="191-wA-JGW"/>
+                            <constraint firstItem="GPQ-Cg-kMk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="4l0-gF-I1F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PLi-QI-KrB" secondAttribute="trailing" constant="27" id="IbR-6q-Eow"/>
+                            <constraint firstItem="PLi-QI-KrB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="tBi-uj-Rpy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="dieOneView" destination="GPQ-Cg-kMk" id="U74-Cu-fno"/>
+                        <outlet property="dieTwoView" destination="PLi-QI-KrB" id="Y3y-HM-uwC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

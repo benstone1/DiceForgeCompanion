@@ -1,7 +1,43 @@
 import UIKit
 
+protocol DieViewDelegate {
+    func didSelectDie(at faceIndex: Int)
+}
+
 class DieView: UIView {
-    lazy var dieContainer: UIView = {
+    
+    func setDie(to newDie: Die) {
+        self.die = newDie
+    }
+    
+    func setDelegate(to newDelegate: DieViewDelegate) {
+        self.delegate = newDelegate
+    }
+    
+    private var delegate: DieViewDelegate?
+    
+    private var buttons: [UIButton] {
+        var buttons = [UIButton]()
+        for subview in dieContainer.arrangedSubviews {
+            guard let stackView = subview as? UIStackView else { fatalError() }
+            for arrangedView in stackView.arrangedSubviews {
+                guard let button = arrangedView as? UIButton else { fatalError() }
+                buttons.append(button)
+            }
+        }
+        return buttons
+    }
+    
+    private var die: Die? {
+        didSet {
+            guard let die = die else { return }
+            for (i, button) in buttons.enumerated() {
+                button.setBackgroundImage(die.faces[i].image, for: .normal)
+            }
+        }
+    }
+    
+    lazy var dieContainer: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: (1...3).map { _ in return makeButtonStackView() })
         stackView.arrangedSubviews[0].widthAnchor.constraint(equalTo: stackView.arrangedSubviews[1].widthAnchor).isActive = true
         stackView.arrangedSubviews[0].heightAnchor.constraint(equalTo: stackView.arrangedSubviews[1].heightAnchor).isActive = true
@@ -24,9 +60,22 @@ class DieView: UIView {
     private func commonInit() {
         setupViews()
     }
+    
+    @objc private func buttonTapped(sender: UIButton!) {
+        delegate?.didSelectDie(at: sender.tag)
+    }
+
 
     private func setupViews() {
         addSubview(dieContainer)
+        configureButtonHandling()
+    }
+    
+    private func configureButtonHandling() {
+        for (i, button) in buttons.enumerated() {
+            button.tag = i
+            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        }
     }
     
     private func makeButtonStackView() -> UIStackView {
