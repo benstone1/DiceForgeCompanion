@@ -11,6 +11,12 @@ class SelectDieFaceViewController: UIViewController, UICollectionViewDelegateFlo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let face = faces[indexPath.row]
+        onSelect?(face)
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     @IBOutlet var facesCollectionView: UICollectionView!
     
@@ -22,4 +28,6 @@ class SelectDieFaceViewController: UIViewController, UICollectionViewDelegateFlo
         facesCollectionView.dataSource = self
         facesCollectionView.register(UINib(nibName: "DieFaceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dieFaceCell")
     }
+    
+    var onSelect: ((DieFace) -> Void)?
 }

@@ -12,21 +12,60 @@ class DiceSelectionViewController: UIViewController {
 
     @IBOutlet var dieOneView: DieView!
     @IBOutlet var dieTwoView: DieView!
+    @IBOutlet var rollCountLabel: UILabel!
+    @IBOutlet var goldCountLabel: UILabel!
+    @IBOutlet var sunshardsCountLabel: UILabel!
+    @IBOutlet var moonShardsCountLabel: UILabel!
+    @IBOutlet var victoryPointsCountLabel: UILabel!
+    @IBOutlet var rollTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet var rollCountStepper: UIStepper!
+    
+    var settings: DieStatisticsSettings! {
+        didSet {
+            rollCountStepper.value = Double(settings.rollCount)
+            rollCountLabel.text = "\(settings.rollCount) roll" + (settings.rollCount != 1 ? "s" : "")
+            rollTypeSegmentedControl.selectedSegmentIndex = settings.rollType.rawValue
+        }
+    }
+    
+    var dieOneDie: Die! {
+        didSet {
+            dieOneView.setDie(to: dieOneDie)
+        }
+    }
+    var dieTwoDie: Die! {
+        didSet {
+            dieTwoView.setDie(to: dieTwoDie)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dieOneView.setDie(to: Die.startingDieOne)
-        dieTwoView.setDie(to: Die.startingDieTwo)
+        dieOneDie = Die.startingDieOne
+        dieTwoDie = Die.startingDieTwo
+        settings = DieStatisticsSettings.defaultSettings
         dieOneView.setDelegate(to: self)
         dieTwoView.setDelegate(to: self)
     }
+    
+    @IBAction func updateRollType(_ sender: UISegmentedControl) {
+        let newRollType = RollType(rawValue: sender.selectedSegmentIndex)!
+        settings.rollType = newRollType
+    }
+    @IBAction func rollCountChanged(_ sender: UIStepper) {
+        settings.rollCount = Int(sender.value)
+    }
+    
 }
 
 extension DiceSelectionViewController: DieViewDelegate {
-    func didSelectDie(at faceIndex: Int) {
-        print("Die \(faceIndex) selected")
-        present(SelectDieFaceViewController(), animated: true) {
-            print("done")
+    func didSelect(dieView: DieView, at faceIndex: Int) {
+        let selectVC = SelectDieFaceViewController()
+        selectVC.onSelect = { (newFace) in
+            var newDieFaces = dieView.getDie().faces
+            newDieFaces[faceIndex] = newFace
+            dieView.setDie(to: Die(faces: newDieFaces))
         }
+        present(selectVC, animated: true)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0A154C258552A0006F537B /* DieStatisticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0A154B258552A0006F537B /* DieStatisticsSettings.swift */; };
 		CD3CDA4E258319470063D9BB /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA4D258319470063D9BB /* DieView.swift */; };
 		CD3CDA50258321350063D9BB /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA4F258321350063D9BB /* Die.swift */; };
 		CD3CDA5325832CBB0063D9BB /* SelectDieFaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3CDA5125832CBB0063D9BB /* SelectDieFaceViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD0A154B258552A0006F537B /* DieStatisticsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieStatisticsSettings.swift; sourceTree = "<group>"; };
 		CD3CDA4D258319470063D9BB /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 		CD3CDA4F258321350063D9BB /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		CD3CDA5125832CBB0063D9BB /* SelectDieFaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDieFaceViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				CD3CDA5525832E670063D9BB /* DieFaceCollectionViewCell.swift */,
 				CD3CDA5625832E670063D9BB /* DieFaceCollectionViewCell.xib */,
 				CD3CDA4F258321350063D9BB /* Die.swift */,
+				CD0A154B258552A0006F537B /* DieStatisticsSettings.swift */,
 				CDB7614A252F53B700D94BAA /* Main.storyboard */,
 				CD3CDA4D258319470063D9BB /* DieView.swift */,
 				CDB7614D252F53B800D94BAA /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 				CDB76149252F53B700D94BAA /* DiceSelectionViewController.swift in Sources */,
 				CD3CDA4E258319470063D9BB /* DieView.swift in Sources */,
 				CDB76145252F53B700D94BAA /* AppDelegate.swift in Sources */,
+				CD0A154C258552A0006F537B /* DieStatisticsSettings.swift in Sources */,
 				CD3CDA5725832E670063D9BB /* DieFaceCollectionViewCell.swift in Sources */,
 				CD3CDA50258321350063D9BB /* Die.swift in Sources */,
 				CDB76147252F53B700D94BAA /* SceneDelegate.swift in Sources */,

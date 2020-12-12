@@ -1,13 +1,17 @@
 import UIKit
 
 protocol DieViewDelegate {
-    func didSelectDie(at faceIndex: Int)
+    func didSelect(dieView: DieView, at faceIndex: Int)
 }
 
 class DieView: UIView {
     
     func setDie(to newDie: Die) {
         self.die = newDie
+    }
+    
+    func getDie() -> Die {
+        return die!
     }
     
     func setDelegate(to newDelegate: DieViewDelegate) {
@@ -62,7 +66,7 @@ class DieView: UIView {
     }
     
     @objc private func buttonTapped(sender: UIButton!) {
-        delegate?.didSelectDie(at: sender.tag)
+        delegate?.didSelect(dieView: self, at: sender.tag)
     }
 
 
