@@ -20,11 +20,20 @@ class DiceSelectionViewController: UIViewController {
     @IBOutlet var rollTypeSegmentedControl: UISegmentedControl!
     @IBOutlet var rollCountStepper: UIStepper!
     
+    var statistics: DieStatistics {
+        return settings.statistics(for: dieOneDie, and: dieTwoDie)
+    }
+    
     var settings: DieStatisticsSettings! {
         didSet {
             rollCountStepper.value = Double(settings.rollCount)
             rollCountLabel.text = "\(settings.rollCount) roll" + (settings.rollCount != 1 ? "s" : "")
             rollTypeSegmentedControl.selectedSegmentIndex = settings.rollType.rawValue
+            let stats = statistics
+            goldCountLabel.text = "\(stats.expectedGoldCount)"
+            sunshardsCountLabel.text = "\(stats.expectedSunShardCount)"
+            moonShardsCountLabel.text = "\(stats.expectedMoonShardCount)"
+            victoryPointsCountLabel.text = "\(stats.expectedVictoryPointCount)"
         }
     }
     
