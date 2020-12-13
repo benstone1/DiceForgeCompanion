@@ -36,10 +36,26 @@ class DiceSelectionViewController: UIViewController {
     func updateStats() {
         guard settings != nil && dieOneDie != nil && dieTwoDie != nil else { return }
         let stats = statistics
-        goldCountLabel.text = String(format: "%.2f", stats.expectedGoldCount)
-        sunshardsCountLabel.text = String(format: "%.2f", stats.expectedSunShardCount)
-        moonShardsCountLabel.text = String(format: "%.2f", stats.expectedMoonShardCount)
-        victoryPointsCountLabel.text = String(format: "%.2f", stats.expectedVictoryPointCount)
+        if stats.expectedGoldCount.min == stats.expectedGoldCount.max {
+            goldCountLabel.text = String(format: "%.2f", stats.expectedGoldCount.min)
+        } else {
+            goldCountLabel.text = String(format: "%.2f", stats.expectedGoldCount.min) + " - " + String(format: "%.2f", stats.expectedGoldCount.max)
+        }
+        if stats.expectedSunShardCount.min == stats.expectedSunShardCount.max {
+            sunshardsCountLabel.text = String(format: "%.2f", stats.expectedSunShardCount.min)
+        } else {
+            sunshardsCountLabel.text = String(format: "%.2f", stats.expectedSunShardCount.min) + " - " + String(format: "%.2f", stats.expectedSunShardCount.max)
+        }
+        if stats.expectedMoonShardCount.min == stats.expectedMoonShardCount.max {
+            moonShardsCountLabel.text = String(format: "%.2f", stats.expectedMoonShardCount.min)
+        } else {
+            moonShardsCountLabel.text = String(format: "%.2f", stats.expectedMoonShardCount.min) + " - " + String(format: "%.2f", stats.expectedMoonShardCount.max)
+        }
+        if stats.expectedVictoryPointCount.min == stats.expectedVictoryPointCount.max {
+            victoryPointsCountLabel.text = String(format: "%.2f", stats.expectedVictoryPointCount.min)
+        } else {
+            victoryPointsCountLabel.text = String(format: "%.2f", stats.expectedVictoryPointCount.min) + " - " + String(format: "%.2f", stats.expectedVictoryPointCount.max)
+        }
     }
     
     var dieOneDie: Die! {
