@@ -37,7 +37,8 @@ struct DieStatisticsSettings {
         var counts: (gold: Int, sunShard: Int, moonShard: Int, victoryPoint: Int) = (0, 0, 0, 0)
         var selectOneCounts: (gold: Int, sunShard: Int, moonShard: Int, victoryPoint: Int) = (0, 0, 0, 0)
         for _ in 0..<Int(simulationCount) {
-            switch die.faces.randomElement()!.type {
+            let roll = die.faces.randomElement()!.type
+            switch roll {
             case let .gold(val): counts.gold += val
             case let .sunShard(val): counts.sunShard += val
             case let .moonShard(val): counts.moonShard += val
@@ -62,13 +63,21 @@ struct DieStatisticsSettings {
                     default: fatalError("Invalid face nesting")
                     }
                 }
-            default:
-                //TODO: Handle remaining cases
-                fatalError("Case not handled: \(die.faces.randomElement()!.type)")
+            case .timesThree: break
+            case let .fiveVictoryWithOtherFace(face):
+                switch face {
+                    case let .gold(val): counts.gold += val
+                    case let .sunShard(val): counts.sunShard += val
+                    case let .moonShard(val): counts.moonShard += val
+                    case let .victory(val): counts.victoryPoint += val
+                    default: fatalError("Invalid face nesting")
+                }
             }
         }
         return Counts(allCounts: counts, selectOneCounts: selectOneCounts)
     }
+    
+    
     private func simulateRolls(forDieOne dieOne: Die, and dieTwo: Die, simulationCount: Int) -> Counts {
         var counts: (gold: Int, sunShard: Int, moonShard: Int, victoryPoint: Int) = (0, 0, 0, 0)
         var selectOneCounts: (gold: Int, sunShard: Int, moonShard: Int, victoryPoint: Int) = (0, 0, 0, 0)
@@ -77,13 +86,42 @@ struct DieStatisticsSettings {
             let dieTwoFace = dieTwo.faces.randomElement()!.type
             var dieOneIsTimesThree = false
             var dieTwoIsTimesThree = false
+                                    
             switch dieTwoFace {
             case .timesThree: dieTwoIsTimesThree = true
             default: break
             }
+            
             switch dieOneFace {
             case .timesThree: dieOneIsTimesThree = true
-            case .fiveVictoryWithOtherFace: fatalError("TODO")
+            default: break
+            }
+
+            
+            switch dieOneFace {
+            case .timesThree: dieOneIsTimesThree = true
+            case let .fiveVictoryWithOtherFace(face):
+                if dieOneFace.isSameType(as: dieTwoFace) {
+                    counts.victoryPoint += 5
+                } else if dieOneFace.isOptionallySameType(as: dieTwoFace) {
+                    selectOneCounts.victoryPoint += 5
+                    switch face {
+                        case let .gold(val): selectOneCounts.gold += val
+                        case let .sunShard(val): selectOneCounts.sunShard += val
+                        case let .moonShard(val): selectOneCounts.moonShard += val
+                        case let .victory(val): selectOneCounts.victoryPoint += val
+                        default: fatalError("Invalid face nesting")
+                    }
+                } else {
+                    switch face {
+                        case let .gold(val): counts.gold += val
+                        case let .sunShard(val): counts.sunShard += val
+                        case let .moonShard(val): counts.moonShard += val
+                        case let .victory(val): counts.victoryPoint += val
+                        default: fatalError("Invalid face nesting")
+                    }
+                }
+
             case let .gold(val): counts.gold += val * (dieTwoIsTimesThree ? 3 : 1)
             case let .sunShard(val): counts.sunShard += val * (dieTwoIsTimesThree ? 3 : 1)
             case let .moonShard(val): counts.moonShard += val * (dieTwoIsTimesThree ? 3 : 1)
@@ -111,7 +149,28 @@ struct DieStatisticsSettings {
             }
             switch dieTwoFace {
             case .timesThree: break
-            case .fiveVictoryWithOtherFace: fatalError("TODO")
+            case let .fiveVictoryWithOtherFace(face):
+                if dieTwoFace.isSameType(as: dieOneFace) {
+                    counts.victoryPoint += 5
+                } else if dieTwoFace.isOptionallySameType(as: dieOneFace) {
+                    selectOneCounts.victoryPoint += 5
+                    switch face {
+                        case let .gold(val): selectOneCounts.gold += val
+                        case let .sunShard(val): selectOneCounts.sunShard += val
+                        case let .moonShard(val): selectOneCounts.moonShard += val
+                        case let .victory(val): selectOneCounts.victoryPoint += val
+                        default: fatalError("Invalid face nesting")
+                    }
+                } else {
+                    switch face {
+                        case let .gold(val): counts.gold += val
+                        case let .sunShard(val): counts.sunShard += val
+                        case let .moonShard(val): counts.moonShard += val
+                        case let .victory(val): counts.victoryPoint += val
+                        default: fatalError("Invalid face nesting")
+                    }
+                }
+                
             case let .gold(val): counts.gold += val * (dieOneIsTimesThree ? 3 : 1)
             case let .sunShard(val): counts.sunShard += val * (dieOneIsTimesThree ? 3 : 1)
             case let .moonShard(val): counts.moonShard += val * (dieOneIsTimesThree ? 3 : 1)

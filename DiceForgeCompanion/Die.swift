@@ -46,6 +46,10 @@ struct DieFace {
         DieFace(image: UIImage(named: "orOneGoldOneSunOneMoon")!, type: .selectOne([.gold(1), .sunShard(1), .moonShard(1)])),
         DieFace(image: UIImage(named: "orTwoGoldTwoSunTwoMoon")!, type: .selectOne([.gold(2), .sunShard(2), .moonShard(2)])),
         DieFace(image: UIImage(named: "timesThree")!, type: .timesThree),
+        DieFace(image: UIImage(named: "fiveVictorySplitThreeGold")!, type: .fiveVictoryWithOtherFace(.gold(3))),
+        DieFace(image: UIImage(named: "fiveVictorySplitThreeVictory")!, type: .fiveVictoryWithOtherFace(.victory(3))),
+        DieFace(image: UIImage(named: "fiveVictorySplitTwoMoon")!, type: .fiveVictoryWithOtherFace(.moonShard(2))),
+        DieFace(image: UIImage(named: "fiveVictorySplitTwoSun")!, type: .fiveVictoryWithOtherFace(.sunShard(2))),
     ]
 }
 
@@ -58,4 +62,137 @@ indirect enum DieFaceType {
     case selectAll([DieFaceType])
     case timesThree
     case fiveVictoryWithOtherFace(DieFaceType)
+    func isOptionallySameType(as otherFace: DieFaceType) -> Bool {
+        switch self {
+        case let .fiveVictoryWithOtherFace(face):
+            switch face {
+            case .gold:
+                switch otherFace {
+                case let .selectOne(types):
+                    for type in types {
+                        switch type {
+                        case .gold: return true
+                        default: break
+                        }
+                    }
+                default: return false
+                }
+            case .sunShard:
+                switch otherFace {
+                case let .selectOne(types):
+                    for type in types {
+                        switch type {
+                        case .sunShard: return true
+                        default: break
+                        }
+                    }
+                default: return false
+                }
+            case .moonShard:
+                switch otherFace {
+                case let .selectOne(types):
+                    for type in types {
+                        switch type {
+                        case .moonShard: return true
+                        default: break
+                        }
+                    }
+                default: return false
+                }
+            case .victory:
+                switch otherFace {
+                case let .selectOne(types):
+                    for type in types {
+                        switch type {
+                        case .victory: return true
+                        default: break
+                        }
+                    }
+                default: return false
+                }
+            default: return false
+            }
+        default: fatalError("Checking only supported for 5/split face")
+        }
+        return false
+    }
+    func isSameType(as otherFace: DieFaceType) -> Bool {
+        switch self {
+        case let .fiveVictoryWithOtherFace(face):
+            switch face {
+            case .gold:
+                switch otherFace {
+                case .gold: return true
+                case let .selectAll(types):
+                    for type in types {
+                        switch type {
+                        case .gold: return true
+                        default: break
+                        }
+                    }
+                case let .fiveVictoryWithOtherFace(face):
+                    switch face {
+                    case .gold: return true
+                    default: return false
+                    }
+                default: return false
+                }
+            case .sunShard:
+                switch otherFace {
+                case .sunShard: return true
+                case let .selectAll(types):
+                    for type in types {
+                        switch type {
+                        case .sunShard: return true
+                        default: break
+                        }
+                    }
+                case let .fiveVictoryWithOtherFace(face):
+                    switch face {
+                    case .sunShard: return true
+                    default: return false
+                    }
+                default: return false
+                }
+            case .moonShard:
+                switch otherFace {
+                case .moonShard: return true
+                case let .selectAll(types):
+                    for type in types {
+                        switch type {
+                        case .moonShard: return true
+                        default: break
+                        }
+                    }
+                case let .fiveVictoryWithOtherFace(face):
+                    switch face {
+                    case .moonShard: return true
+                    default: return false
+                    }
+                default: return false
+                }
+            case .victory:
+                switch otherFace {
+                case .victory: return true
+                case let .selectAll(types):
+                    for type in types {
+                        switch type {
+                        case .victory: return true
+                        default: break
+                        }
+                    }
+                case let .fiveVictoryWithOtherFace(face):
+                    switch face {
+                    case .victory: return true
+                    default: return false
+                    }
+                default: return false
+                }
+            default: fatalError("unexpected die face in 5 split")
+            }
+        default: fatalError("Checking only supported for 5/split face")
+        }
+        return false
+    }
 }
+
