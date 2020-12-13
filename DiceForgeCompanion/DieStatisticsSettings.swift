@@ -75,58 +75,64 @@ struct DieStatisticsSettings {
         for _ in 0..<Int(simulationCount) {
             let dieOneFace = dieOne.faces.randomElement()!.type
             let dieTwoFace = dieTwo.faces.randomElement()!.type
+            var dieOneIsTimesThree = false
+            var dieTwoIsTimesThree = false
+            switch dieTwoFace {
+            case .timesThree: dieTwoIsTimesThree = true
+            default: break
+            }
             switch dieOneFace {
-            case .timesThree: fatalError("TODO")
+            case .timesThree: dieOneIsTimesThree = true
             case .fiveVictoryWithOtherFace: fatalError("TODO")
-            case let .gold(val): counts.gold += val
-            case let .sunShard(val): counts.sunShard += val
-            case let .moonShard(val): counts.moonShard += val
-            case let .victory(val): counts.victoryPoint += val
+            case let .gold(val): counts.gold += val * (dieTwoIsTimesThree ? 3 : 1)
+            case let .sunShard(val): counts.sunShard += val * (dieTwoIsTimesThree ? 3 : 1)
+            case let .moonShard(val): counts.moonShard += val * (dieTwoIsTimesThree ? 3 : 1)
+            case let .victory(val): counts.victoryPoint += val * (dieTwoIsTimesThree ? 3 : 1)
             case let .selectAll(types):
                 for type in types {
                     switch type {
-                    case let .gold(val): counts.gold += val
-                    case let .sunShard(val): counts.sunShard += val
-                    case let .moonShard(val): counts.moonShard += val
-                    case let .victory(val): counts.victoryPoint += val
+                    case let .gold(val): counts.gold += val * (dieTwoIsTimesThree ? 3 : 1)
+                    case let .sunShard(val): counts.sunShard += val * (dieTwoIsTimesThree ? 3 : 1)
+                    case let .moonShard(val): counts.moonShard += val * (dieTwoIsTimesThree ? 3 : 1)
+                    case let .victory(val): counts.victoryPoint += val * (dieTwoIsTimesThree ? 3 : 1)
                     default: fatalError("Invalid face nesting")
                     }
                 }
             case let .selectOne(types):
                 for type in types {
                     switch type {
-                    case let .gold(val): selectOneCounts.gold += val
-                    case let .sunShard(val): selectOneCounts.sunShard += val
-                    case let .moonShard(val): selectOneCounts.moonShard += val
-                    case let .victory(val): selectOneCounts.victoryPoint += val
+                    case let .gold(val): selectOneCounts.gold += val * (dieTwoIsTimesThree ? 3 : 1)
+                    case let .sunShard(val): selectOneCounts.sunShard += val * (dieTwoIsTimesThree ? 3 : 1)
+                    case let .moonShard(val): selectOneCounts.moonShard += val * (dieTwoIsTimesThree ? 3 : 1)
+                    case let .victory(val): selectOneCounts.victoryPoint += val * (dieTwoIsTimesThree ? 3 : 1)
                     default: fatalError("Invalid face nesting")
                     }
                 }
             }
             switch dieTwoFace {
-            case .timesThree: fatalError("TODO")
+            case .timesThree: break
             case .fiveVictoryWithOtherFace: fatalError("TODO")
-            case let .gold(val): counts.gold += val
-            case let .sunShard(val): counts.sunShard += val
-            case let .moonShard(val): counts.moonShard += val
-            case let .victory(val): counts.victoryPoint += val
+            case let .gold(val): counts.gold += val * (dieOneIsTimesThree ? 3 : 1)
+            case let .sunShard(val): counts.sunShard += val * (dieOneIsTimesThree ? 3 : 1)
+            case let .moonShard(val): counts.moonShard += val * (dieOneIsTimesThree ? 3 : 1)
+            case let .victory(val): counts.victoryPoint += val * (dieOneIsTimesThree ? 3 : 1)
             case let .selectAll(types):
                 for type in types {
                     switch type {
-                    case let .gold(val): counts.gold += val
-                    case let .sunShard(val): counts.sunShard += val
-                    case let .moonShard(val): counts.moonShard += val
-                    case let .victory(val): counts.victoryPoint += val
+                    case let .gold(val): counts.gold += val * (dieOneIsTimesThree ? 3 : 1)
+                    case let .sunShard(val): counts.sunShard += val * (dieOneIsTimesThree ? 3 : 1)
+                    case let .moonShard(val): counts.moonShard += val * (dieOneIsTimesThree ? 3 : 1)
+                    case let .victory(val): counts.victoryPoint += val * (dieOneIsTimesThree ? 3 : 1)
                     default: fatalError("Invalid face nesting")
                     }
                 }
             case let .selectOne(types):
                 for type in types {
                     switch type {
-                    case let .gold(val): selectOneCounts.gold += val
-                    case let .sunShard(val): selectOneCounts.sunShard += val
-                    case let .moonShard(val): selectOneCounts.moonShard += val
-                    case let .victory(val): selectOneCounts.victoryPoint += val
+                    case let .gold(val): selectOneCounts.gold += val * (dieOneIsTimesThree ? 3 : 1)
+                    case let .sunShard(val): selectOneCounts.sunShard += val * (dieOneIsTimesThree ? 3 : 1)
+                    case let .moonShard(val): selectOneCounts.moonShard += val * (dieOneIsTimesThree ? 3 : 1)
+                    case let .victory(val): selectOneCounts.victoryPoint += val * (dieOneIsTimesThree ? 3 : 1)
                     default: fatalError("Invalid face nesting")
                     }
                 }
