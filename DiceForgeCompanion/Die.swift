@@ -40,9 +40,16 @@ struct DieFace {
     let type: DieFaceType
     static let allFaces: [DieFace] = [
         DieFace(image: UIImage(named: "oneGold")!, type: .gold(1)),
+        DieFace(image: UIImage(named: "threeGold")!, type: .gold(3)),
+        DieFace(image: UIImage(named: "fourGold")!, type: .gold(4)),
+        DieFace(image: UIImage(named: "sixGold")!, type: .gold(6)),
         DieFace(image: UIImage(named: "oneSun")!, type: .sunShard(1)),
+        DieFace(image: UIImage(named: "twoSun")!, type: .sunShard(2)),
         DieFace(image: UIImage(named: "oneMoon")!, type: .moonShard(1)),
+        DieFace(image: UIImage(named: "twoMoon")!, type: .moonShard(2)),
         DieFace(image: UIImage(named: "twoVictory")!, type: .victory(2)),
+        DieFace(image: UIImage(named: "threeVictory")!, type: .victory(3)),
+        DieFace(image: UIImage(named: "fourVictory")!, type: .victory(4)),
     ]
 }
 
