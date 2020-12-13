@@ -5,14 +5,20 @@ protocol DieViewDelegate {
 }
 
 class DieView: UIView {
-    
+        
     func setDie(to newDie: Die) {
         self.die = newDie
+    }
+    
+    func setType(to rollType: RollType) {
+        self.dieType = rollType
     }
     
     func getDie() -> Die {
         return die!
     }
+    
+    var dieType: RollType!
     
     func setDelegate(to newDelegate: DieViewDelegate) {
         self.delegate = newDelegate
