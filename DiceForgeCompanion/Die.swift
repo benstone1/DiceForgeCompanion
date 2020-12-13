@@ -50,6 +50,10 @@ struct DieFace {
         DieFace(image: UIImage(named: "twoVictory")!, type: .victory(2)),
         DieFace(image: UIImage(named: "threeVictory")!, type: .victory(3)),
         DieFace(image: UIImage(named: "fourVictory")!, type: .victory(4)),
+        DieFace(image: UIImage(named: "oneGoldOneSunOneMoonOneVictory")!, type: .selectAll([.gold(1), .sunShard(1), .moonShard(1), .victory(1)])),
+        DieFace(image: UIImage(named: "oneSunOneVictory")!, type: .selectAll([.sunShard(1), .victory(1)])),
+        DieFace(image: UIImage(named: "twoGoldOneMoon")!, type: .selectAll([.gold(2), .moonShard(1)])),
+        DieFace(image: UIImage(named: "twoMoonTwoVictory")!, type: .selectAll([.moonShard(2), .victory(2)])),
     ]
 }
 

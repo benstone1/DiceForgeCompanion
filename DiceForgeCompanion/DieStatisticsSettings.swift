@@ -31,6 +31,16 @@ struct DieStatisticsSettings {
             case let .sunShard(val): counts.sunShard += val
             case let .moonShard(val): counts.moonShard += val
             case let .victory(val): counts.victoryPoint += val
+            case let .selectAll(types):
+                for type in types {
+                    switch type {
+                    case let .gold(val): counts.gold += val
+                    case let .sunShard(val): counts.sunShard += val
+                    case let .moonShard(val): counts.moonShard += val
+                    case let .victory(val): counts.victoryPoint += val
+                    default: fatalError("Invalid face nesting")
+                    }
+                }
             default:
                 //TODO: Handle remaining cases
                 fatalError("Case not handled: \(die.faces.randomElement()!.type)")
