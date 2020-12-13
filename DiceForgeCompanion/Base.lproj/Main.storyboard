@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPQ-Cg-kMk" customClass="DieView" customModule="DiceForgeCompanion" customModuleProvider="target">
-                                <rect key="frame" x="20" y="124" width="160" height="240"/>
+                                <rect key="frame" x="20" y="94.5" width="160" height="240"/>
                                 <color key="backgroundColor" red="1" green="0.98009110850975623" blue="0.96366659526685483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Im7-b5-w4S"/>
@@ -24,7 +24,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-QI-KrB" customClass="DieView" customModule="DiceForgeCompanion" customModuleProvider="target">
-                                <rect key="frame" x="227" y="124" width="160" height="240"/>
+                                <rect key="frame" x="227" y="94.5" width="160" height="240"/>
                                 <color key="backgroundColor" red="1" green="0.98009110850975623" blue="0.96366659526685483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="RJr-CK-QAp"/>
@@ -32,13 +32,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awh-eQ-7BR">
-                                <rect key="frame" x="172" y="384" width="70.5" height="20.5"/>
+                                <rect key="frame" x="172" y="354.5" width="70.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-pA-25k">
-                                <rect key="frame" x="87.5" y="433" width="239" height="32"/>
+                                <rect key="frame" x="87.5" y="385" width="239" height="32"/>
                                 <segments>
                                     <segment title="Left Die"/>
                                     <segment title="Right Die"/>
@@ -49,7 +49,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P5R-eS-yyg">
-                                <rect key="frame" x="87.5" y="576.5" width="136" height="112"/>
+                                <rect key="frame" x="87.5" y="528.5" width="136" height="112"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="thn-lV-lU0">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="20.5"/>
@@ -127,7 +127,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O7M-EM-8RN">
-                                <rect key="frame" x="160" y="490" width="94" height="60.5"/>
+                                <rect key="frame" x="160" y="442" width="94" height="60.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 roll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCn-uM-z4I">
                                         <rect key="frame" x="29.5" y="0.0" width="35.5" height="20.5"/>
@@ -143,21 +143,37 @@
                                     </stepper>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQY-ow-bWN">
+                                <rect key="frame" x="69.5" y="64" width="61.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-jc-iqf">
+                                <rect key="frame" x="276.5" y="64" width="61" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="e2e-jc-iqf" firstAttribute="centerX" secondItem="PLi-QI-KrB" secondAttribute="centerX" id="13g-nT-MvO"/>
                             <constraint firstItem="GPQ-Cg-kMk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="191-wA-JGW"/>
-                            <constraint firstItem="GPQ-Cg-kMk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="4l0-gF-I1F"/>
                             <constraint firstItem="Awh-eQ-7BR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7Ew-X6-0UX"/>
                             <constraint firstItem="O7M-EM-8RN" firstAttribute="top" secondItem="ghS-pA-25k" secondAttribute="bottom" constant="26" id="G5F-wb-N3c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PLi-QI-KrB" secondAttribute="trailing" constant="27" id="IbR-6q-Eow"/>
                             <constraint firstItem="Awh-eQ-7BR" firstAttribute="top" secondItem="PLi-QI-KrB" secondAttribute="bottom" constant="20" id="SAa-bA-8IW"/>
+                            <constraint firstItem="PLi-QI-KrB" firstAttribute="top" secondItem="e2e-jc-iqf" secondAttribute="bottom" constant="10" id="Wh4-Ra-zVX"/>
                             <constraint firstItem="ghS-pA-25k" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YzL-OD-2cK"/>
                             <constraint firstItem="O7M-EM-8RN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bGc-fn-UFo"/>
+                            <constraint firstItem="e2e-jc-iqf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eBz-33-GUw"/>
                             <constraint firstItem="P5R-eS-yyg" firstAttribute="leading" secondItem="ghS-pA-25k" secondAttribute="leading" id="m1x-G8-zXI"/>
-                            <constraint firstItem="PLi-QI-KrB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="tBi-uj-Rpy"/>
+                            <constraint firstItem="GPQ-Cg-kMk" firstAttribute="top" secondItem="yQY-ow-bWN" secondAttribute="bottom" constant="10" id="o9a-KO-sgO"/>
+                            <constraint firstItem="yQY-ow-bWN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="oBa-ek-dQJ"/>
                             <constraint firstItem="P5R-eS-yyg" firstAttribute="top" secondItem="O7M-EM-8RN" secondAttribute="bottom" constant="26" id="u0V-Db-GAI"/>
-                            <constraint firstItem="ghS-pA-25k" firstAttribute="top" secondItem="Awh-eQ-7BR" secondAttribute="bottom" constant="28.5" id="vMd-S7-s0V"/>
+                            <constraint firstItem="ghS-pA-25k" firstAttribute="top" secondItem="Awh-eQ-7BR" secondAttribute="bottom" constant="10" id="vMd-S7-s0V"/>
+                            <constraint firstItem="yQY-ow-bWN" firstAttribute="centerX" secondItem="GPQ-Cg-kMk" secondAttribute="centerX" id="wgf-zC-MDh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
